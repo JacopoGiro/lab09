@@ -12,8 +12,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.util.List;
 import java.util.Random;
@@ -46,9 +48,28 @@ public class BadIOGUI {
         canvas.add(write, BorderLayout.CENTER);
         frame.setContentPane(canvas);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        final JPanel centerCanvas = new JPanel();
+        centerCanvas.setLayout(new BoxLayout(centerCanvas, BoxLayout.X_AXIS));
+        canvas.add(centerCanvas, BorderLayout.CENTER);
+        centerCanvas.add(write);
+        final JButton read = new JButton("read");
+        centerCanvas.add(read);
         /*
-         * Handlers
-         */
+        * Handlers
+        */
+        read.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(final ActionEvent ignored) { 
+                try {
+                    System.out.println(
+                        Files.readAllLines(FileSystems.getDefault().getPath(PATH), StandardCharsets.UTF_8)
+                    );
+                } catch (IOException e) {
+                    JOptionPane.showMessageDialog(frame, e, "Error", JOptionPane.ERROR_MESSAGE);
+                    e.printStackTrace();
+                }
+            }
+        });
         write.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent ignored) {
@@ -88,6 +109,7 @@ public class BadIOGUI {
          * on screen. Results may vary, but it is generally the best choice.
          */
         frame.setLocationByPlatform(true);
+        frame.pack();
         /*
          * OK, ready to push the frame onscreen
          */
