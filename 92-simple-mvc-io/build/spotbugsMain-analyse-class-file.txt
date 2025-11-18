@@ -1,3 +1,4 @@
-C:\Users\jacopo.girolamini\Desktop\New folder\lab09\92-simple-mvc-io\build\classes\java\main\it\unibo\mvc\Controller.class
-C:\Users\jacopo.girolamini\Desktop\New folder\lab09\92-simple-mvc-io\build\classes\java\main\it\unibo\mvc\SimpleGUI.class
-C:\Users\jacopo.girolamini\Desktop\New folder\lab09\92-simple-mvc-io\build\classes\java\main\it\unibo\mvc\SimpleGUIWithFileChooser.class
+C:\Users\jacop\OneDrive\Documenti\lab_PROG_OGGETTI\9\lab09\92-simple-mvc-io\build\classes\java\main\it\unibo\mvc\Controller.class
+C:\Users\jacop\OneDrive\Documenti\lab_PROG_OGGETTI\9\lab09\92-simple-mvc-io\build\classes\java\main\it\unibo\mvc\SimpleGUI.class
+C:\Users\jacop\OneDrive\Documenti\lab_PROG_OGGETTI\9\lab09\92-simple-mvc-io\build\classes\java\main\it\unibo\mvc\SimpleGUIWithFileChooser$1.class
+C:\Users\jacop\OneDrive\Documenti\lab_PROG_OGGETTI\9\lab09\92-simple-mvc-io\build\classes\java\main\it\unibo\mvc\SimpleGUIWithFileChooser.class
