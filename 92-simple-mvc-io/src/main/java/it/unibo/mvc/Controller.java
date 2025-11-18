@@ -26,9 +26,11 @@ public class Controller {
         return currentFile.getAbsolutePath();
     }
 
-    public void writeString(final String str) throws FileNotFoundException {
-        final PrintStream ps = new PrintStream(currentFile);
-        System.out.println("fatto " +  System.getProperty("user.dir") + File.separator + "output.txt");
-        ps.print(str);
+    public void writeString(final String str){
+        try(final PrintStream ps = new PrintStream(currentFile)){
+            ps.print(str);
+        }catch(FileNotFoundException e){
+            e.printStackTrace(); // NOPMD
+        }
     }
 }

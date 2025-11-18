@@ -11,41 +11,37 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 /**
  * A very simple program using a graphical interface.
  * 
  */
 public final class SimpleGUI {
-
     private final JFrame frame = new JFrame();
     private final Controller controller = new Controller();
     private static final int PROPORTION = 5;
     
     public SimpleGUI(){
+        //components declaration
         JPanel mainPanel = new JPanel();
-        mainPanel.setLayout(new BorderLayout());
         JTextArea textArea = new JTextArea();
-        mainPanel.add(textArea, BorderLayout.CENTER);
         JButton save = new JButton("Save");
+
+        //GUI
+        mainPanel.setLayout(new BorderLayout());
+        mainPanel.add(textArea, BorderLayout.CENTER);
         mainPanel.add(save, BorderLayout.SOUTH);
 
-        save.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    controller.writeString(textArea.getText());
-                } catch (FileNotFoundException e1) {
-                    e1.printStackTrace();
-                }
-            }
-        });
-
+        //frame
         frame.setContentPane(mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        //listeners
+        save.addActionListener(e -> controller.writeString(textArea.getText()));
     }
 
-    private void display() {
+    protected void display() {
         final Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
         final int sw = (int) screen.getWidth();
         final int sh = (int) screen.getHeight();
@@ -55,7 +51,6 @@ public final class SimpleGUI {
     }
 
     public static void main(String[] args) {
-        SimpleGUI n = new SimpleGUI();
-        n.display();
+        new SimpleGUI().display();
     }
 }
